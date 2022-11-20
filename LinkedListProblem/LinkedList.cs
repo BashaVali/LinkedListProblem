@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LinkedListProblem;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,45 +7,55 @@ using System.Threading.Tasks;
 
 namespace LinkedListProblem
 {
-        public class LinkedList
-        {
-        //Creating a head node to point the first element
-           public Node head;
-        //Creating a method to insert last
+    public class LinkedList
+    {
+        public Node head;
         public void Add(int data)
+        {
+            Node node = new Node(data);
+            if (this.head == null)
             {
-                Node node = new Node(data);
-                if (this.head == null)
-                {
-                    this.head = node;
-                //return;
-                }
-                else
-                {
-                    Node temp = head;
-                    while (temp.next != null)
-                    {
-                        temp = temp.next;
-                    }
-                    temp.next = node;
-                }
-                Console.WriteLine("{0} inserted into LinkedList", node.data);
+                this.head = node;
             }
-            //Display the nodes
-            public void Display()
+            else
             {
-                Node temp = this.head;
-                if (temp == null)
+                Node temp = head;
+                while (temp.next != null)
                 {
-                    Console.WriteLine("LinkedList is empty");
-                }
-                Console.Write("LinkedList is as : ");
-                while (temp != null)
-                {
-                    Console.Write(temp.data + " ");
                     temp = temp.next;
                 }
-
+                temp.next = node;
+            }
+            Console.WriteLine("{0} inserted into LinkedList", node.data);
+        }
+        public void LinkedListReverseOrder(int data)
+        {
+            Node newNode = new Node(data);
+            if (this.head == null)
+            {
+                this.head = newNode;
+            }
+            else
+            {
+                Node temp = this.head;
+                head = newNode;
+                head.next = temp;
             }
         }
+        public void Display()
+        {
+            Node temp = this.head;
+            if (temp == null)
+            {
+                Console.WriteLine("LinkedList is empty");
+            }
+            Console.Write("LinkedList Reverse order is  : ");
+            while (temp != null)
+            {
+                Console.Write(temp.data + " ");
+                temp = temp.next;
+            }
+
+        }
+    }
 }
