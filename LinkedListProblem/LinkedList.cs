@@ -112,6 +112,17 @@ namespace LinkedListProblem
             Console.WriteLine("Element not found!!!!!!!!");
             return default;
         }
+        //Searching the particular element
+        //If element is found,then after that insert the element..
+        public int Insert(int searchdata, int data)
+        {
+            Node temp = Search(searchdata);
+            Node newNode = new Node(data);
+            newNode.next = temp.next;
+            temp.next = newNode;
+            return (newNode.data);
+
+        }
         public void Display()
         {
             Node temp = this.head;
