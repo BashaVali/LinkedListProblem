@@ -23,7 +23,8 @@ namespace LinkedListStack
                                   "5.RemoveLastNode"+"\n"+
                                   "6.SearchNode"+"\n"+
                                   "7.SearchAndInsert"+"\n"+
-                                  "8.Exit" + "\n");
+                                  "8.SearchAndDelete"+"\n"+
+                                  "9.Exit" + "\n");
 
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
@@ -74,8 +75,15 @@ namespace LinkedListStack
                         linkedList.Insert(30, 40);
                         linkedList.Display();
                         break;
-
                     case 8:
+                        linkedList.Add(56);
+                        linkedList.Add(30);
+                        linkedList.Add(40);
+                        linkedList.Add(70);
+                        linkedList.DeleteInBetween(40);
+                        linkedList.Display();
+                        break;
+                    case 9:
                         flag = false;
                         break;
                
